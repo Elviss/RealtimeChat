@@ -2,25 +2,21 @@
             
     <div class="chat-message">
         
-        <p>{{ message }}</p>
+        <p>{{ message.message }}</p>
 
-        <small>{{ user }}</small>
+        <small>{{ message.user }}</small>
             
     </div>
+    
 </template>
 
 <script>
     export default {
-        data() {
-            return {
-                message: "This is some message text",
-                user: "Elvis"
-            }      
-        }
+        props: ['message']
     }
 </script>
 
-<style type="text/css">
+<style lang="css">
     .chat-message {
         padding: 1rem;
     }

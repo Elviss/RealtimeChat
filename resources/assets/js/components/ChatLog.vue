@@ -4,9 +4,7 @@
             
             <div class="chat-log">
                 
-                <chat-message></chat-message>
-                <chat-message></chat-message>
-                <chat-message></chat-message>
+                <chat-message v-for="msg in messages" :message="msg" :key="msg.message"></chat-message>
                 
             </div>
             
@@ -17,12 +15,23 @@
 <script>
     export default {
         data() {
-            
+            return {
+                messages: [
+                    {
+                        message: "Hey!",
+                        user: "Elvis"
+                    },
+                    {
+                        message: "Hello!",
+                        user: "Michael"
+                    }
+                ]                    
+            }
         }
     }
 </script>
 
-<style type="text/css">
+<style lang="css">
     .chat-log .chat-message:nth-child(even) {
         backgrround-color: #ccc;
     }

@@ -43056,14 +43056,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            message: "This is some message text",
-            user: "Elvis"
-        };
-    }
+    props: ['message']
 });
 
 /***/ }),
@@ -43075,9 +43071,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "chat-message" }, [
-    _c("p", [_vm._v(_vm._s(_vm.message))]),
+    _c("p", [_vm._v(_vm._s(_vm.message.message))]),
     _vm._v(" "),
-    _c("small", [_vm._v(_vm._s(_vm.user))])
+    _c("small", [_vm._v(_vm._s(_vm.message.user))])
   ])
 }
 var staticRenderFns = []
@@ -43257,11 +43253,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {}
+    data: function data() {
+        return {
+            messages: [{
+                message: "Hey!",
+                user: "Elvis"
+            }, {
+                message: "Hello!",
+                user: "Michael"
+            }]
+        };
+    }
 });
 
 /***/ }),
@@ -43277,14 +43281,12 @@ var render = function() {
       _c(
         "div",
         { staticClass: "chat-log" },
-        [
-          _c("chat-message"),
-          _vm._v(" "),
-          _c("chat-message"),
-          _vm._v(" "),
-          _c("chat-message")
-        ],
-        1
+        _vm._l(_vm.messages, function(msg) {
+          return _c("chat-message", {
+            key: msg.message,
+            attrs: { message: msg }
+          })
+        })
       )
     ])
   ])
