@@ -1,13 +1,15 @@
 <template lang="html">
-    <div class="chat-log">
+    <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            
+            <div class="chat-log">
                 
                 <chat-message></chat-message>
                 <chat-message></chat-message>
                 <chat-message></chat-message>
                 
             </div>
+            
         </div>
     </div>
 </template>
@@ -19,3 +21,9 @@
         }
     }
 </script>
+
+<style type="text/css">
+    .chat-log .chat-message:nth-child(even) {
+        backgrround-color: #ccc;
+    }
+</style>

@@ -1,12 +1,11 @@
 <template lang="html">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <p>{{ message }}</p>
+            
+    <div class="chat-message">
+        
+        <p>{{ message }}</p>
 
-                <small>{{ user }}</small>
-            </div>
-        </div>
+        <small>{{ user }}</small>
+            
     </div>
 </template>
 
@@ -20,3 +19,13 @@
         }
     }
 </script>
+
+<style type="text/css">
+    .chat-message {
+        padding: 1rem;
+    }
+    
+    .chat-message > p {
+        margin-bottom: .5rem;
+    }
+</style>
