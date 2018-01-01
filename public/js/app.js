@@ -1104,18 +1104,19 @@ Vue.component('chat-composer', __webpack_require__(58));
 var app = new Vue({
     el: '#app',
     data: {
-        messages: [{
-            message: "Hey!",
-            user: "Elvis"
-        }, {
-            message: "Hello!",
-            user: "Michael"
-        }]
+        messages: []
     },
     methods: {
         addMessage: function addMessage(message) {
             this.messages.push(message);
         }
+    },
+    created: function created() {
+        var _this = this;
+
+        axios.get('/messages').then(function (response) {
+            _this.messages = response.data;
+        });
     }
 });
 
@@ -43087,7 +43088,7 @@ var render = function() {
   return _c("div", { staticClass: "chat-message" }, [
     _c("p", [_vm._v(_vm._s(_vm.message.message))]),
     _vm._v(" "),
-    _c("small", [_vm._v(_vm._s(_vm.message.user))])
+    _c("small", [_vm._v(_vm._s(_vm.message.user.name))])
   ])
 }
 var staticRenderFns = []

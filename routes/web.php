@@ -22,3 +22,7 @@ Route::get('/chat', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/messages', function () {
+    return \App\Message::with('user')->get();
+})->middleware('auth');
