@@ -20,6 +20,9 @@ Vue.component('chat-message', require('./components/ChatMessage.vue'));
 Vue.component('chat-log', require('./components/ChatLog.vue'));
 Vue.component('chat-composer', require('./components/ChatComposer.vue'));
 
+// let token = document.head.querySelector('meta[name="csrf-token"]');
+// window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -28,6 +31,14 @@ const app = new Vue({
     methods: {
         addMessage(message) {
             this.messages.push(message);
+            
+            axios.post('/messages', message)
+                .then(response => {
+                    console.log('post');
+                })
+                .catch(function (error) {   
+                    console.log(error);
+                });
         }
     },
     created() {
