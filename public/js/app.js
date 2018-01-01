@@ -43264,6 +43264,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['messages']
@@ -43280,9 +43284,28 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "chat-log" },
-    _vm._l(_vm.messages, function(msg) {
-      return _c("chat-message", { key: msg.message, attrs: { message: msg } })
-    })
+    [
+      _vm._l(_vm.messages, function(msg) {
+        return _c("chat-message", { key: msg.message, attrs: { message: msg } })
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.messages.length === 0,
+              expression: "messages.length === 0"
+            }
+          ],
+          staticClass: "empty"
+        },
+        [_vm._v("\n        Nothing here yet!\n    ")]
+      )
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -43376,7 +43399,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         sendMessage: function sendMessage() {
             this.$emit('messagesent', {
                 message: this.messageText,
-                user: 'Elvis'
+                user: {
+                    name: 'Elvis'
+                }
             });
             this.messageText = '';
         }
@@ -43768,7 +43793,7 @@ exports = module.exports = __webpack_require__(47)(undefined);
 
 
 // module
-exports.push([module.i, "\n.chat-log .chat-message:nth-child(even) {\n    backgrround-color: #ccc;\n}\n", ""]);
+exports.push([module.i, "\n.chat-log .chat-message:nth-child(even) {\n    backgrround-color: #ccc;\n}\n.empty {\n    padding: 1em;\n    text-align: center;\n}\n", ""]);
 
 // exports
 

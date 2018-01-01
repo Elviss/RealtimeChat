@@ -21,7 +21,9 @@
             sendMessage() {
                 this.$emit('messagesent', {
                     message: this.messageText,
-                    user: 'Elvis'
+                    user: {
+                        name: 'Elvis'
+                    }
                 });
                 this.messageText = '';
             }
