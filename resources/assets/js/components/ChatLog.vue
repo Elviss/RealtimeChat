@@ -14,20 +14,7 @@
 
 <script>
     export default {
-        data() {
-            return {
-                messages: [
-                    {
-                        message: "Hey!",
-                        user: "Elvis"
-                    },
-                    {
-                        message: "Hello!",
-                        user: "Michael"
-                    }
-                ]                    
-            }
-        }
+        props: ['messages']
     }
 </script>
 

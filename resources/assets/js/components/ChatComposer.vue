@@ -23,7 +23,7 @@
             sendMessage() {
                 this.$emit('messagesent', {
                     message: this.messageText,
-                    author: 'Elvis'
+                    user: 'Elvis'
                 });
                 this.messageText = '';
             }

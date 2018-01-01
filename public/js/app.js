@@ -1102,7 +1102,21 @@ Vue.component('chat-log', __webpack_require__(55));
 Vue.component('chat-composer', __webpack_require__(58));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app',
+    data: {
+        messages: [{
+            message: "Hey!",
+            user: "Elvis"
+        }, {
+            message: "Hello!",
+            user: "Michael"
+        }]
+    },
+    methods: {
+        addMessage: function addMessage(message) {
+            this.messages.push(message);
+        }
+    }
 });
 
 /***/ }),
@@ -43255,17 +43269,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            messages: [{
-                message: "Hey!",
-                user: "Elvis"
-            }, {
-                message: "Hello!",
-                user: "Michael"
-            }]
-        };
-    }
+    props: ['messages']
 });
 
 /***/ }),
@@ -43384,7 +43388,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         sendMessage: function sendMessage() {
             this.$emit('messagesent', {
                 message: this.messageText,
-                author: 'Elvis'
+                user: 'Elvis'
             });
             this.messageText = '';
         }
