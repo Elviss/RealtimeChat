@@ -1,15 +1,13 @@
-<template lang="html">
-    <div class="container">
-        <div class="row">
-            <div class="chat-composer">
+<template lang="html"> 
+    
+    <div class="chat-composer">
+    
+        <input type="text" placeholder="Start typing your message..." v-model="messageText" @keyup.enter="sendMessage">
             
-                <input type="text" placeholder="Start typing your message..." v-model="messageText" @keyup.enter="sendMessage">
-                    
-                <button class="btn btn-primary" @click="sendMessage">Send</button>
-                
-            </div>
-        </div>
+        <button class="btn btn-primary" @click="sendMessage">Send</button>
+        
     </div>
+    
 </template>
 
 <script>
@@ -34,6 +32,8 @@
 <style type="text/css">
     .chat-composer {
         display: flex;
+        /*position: fixed;*/
+        /*bottom: 20px;*/
     }
     .chat-composer input {
         flex: 1 auto;

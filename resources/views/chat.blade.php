@@ -1,20 +1,13 @@
-<html>
-<head>
-    <title>Chatroom</title>
-</head>
+@extends('layouts.app')
 
-<link rel="stylesheet" href="css/app.css">
-
-<body>
-
-<div id="app">
+@section('content')
+    
+<div class="container">
     <h1>Chatroom</h1>
     
     <chat-log :messages="messages"></chat-log>
     
     <chat-composer v-on:messagesent="addMessage"></chat-composer>
 </div>
-
-<script src="js/app.js" charset="utf-8"></script>
-</body>
-</html>
+    
+@endsection

@@ -1,15 +1,11 @@
 <template lang="html">
-    <div class="container">
-        <div class="row">
             
-            <div class="chat-log">
-                
-                <chat-message v-for="msg in messages" :message="msg" :key="msg.message"></chat-message>
-                
-            </div>
-            
-        </div>
+    <div class="chat-log">
+        
+        <chat-message v-for="msg in messages" :message="msg" :key="msg.message"></chat-message>
+        
     </div>
+    
 </template>
 
 <script>
