@@ -3,9 +3,9 @@
         <div class="row">
             <div class="chat-composer">
             
-                <input type="text" placeholder="Start typing your message...">
+                <input type="text" placeholder="Start typing your message..." v-model="messageText" @keyup.enter="sendMessage">
                     
-                <button class="btn btn-primary">Send</button>
+                <button class="btn btn-primary" @click="sendMessage">Send</button>
                 
             </div>
         </div>
@@ -15,7 +15,18 @@
 <script>
     export default {
         data() {
-            
+            return {
+                messageText: ''
+            }
+        },
+        methods: {
+            sendMessage() {
+                this.$emit('messagesent', {
+                    message: this.messageText,
+                    author: 'Elvis'
+                });
+                this.messageText = '';
+            }
         }
     }
 </script>
@@ -26,6 +37,7 @@
     }
     .chat-composer input {
         flex: 1 auto;
+        padding: 0 5px;
     }
     
     .chat-composer button {
