@@ -34,7 +34,7 @@ const app = new Vue({
             
             axios.post('/messages', message)
                 .then(response => {
-                    console.log('post');
+                    // console.log(response);
                 })
                 .catch(function (error) {   
                     console.log(error);
@@ -45,5 +45,13 @@ const app = new Vue({
         axios.get('/messages').then(response => {
             this.messages = response.data;
         });
+        
+        Echo.join('chatroom')
+            .here(res => {})
+            .joining(res => {})
+            .leaving(res => {}) 
+            .listen('MessagePosted', (e) => {
+                console.log(e);
+            });
     }
 });

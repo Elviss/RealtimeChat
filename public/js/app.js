@@ -1417,7 +1417,7 @@ var app = new Vue({
             this.messages.push(message);
 
             axios.post('/messages', message).then(function (response) {
-                console.log('post');
+                // console.log(response);
             }).catch(function (error) {
                 console.log(error);
             });
@@ -1428,6 +1428,10 @@ var app = new Vue({
 
         axios.get('/messages').then(function (response) {
             _this.messages = response.data;
+        });
+
+        Echo.join('chatroom').here(function (res) {}).joining(function (res) {}).leaving(function (res) {}).listen('MessagePosted', function (e) {
+            console.log(e);
         });
     }
 });
