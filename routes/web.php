@@ -36,7 +36,7 @@ Route::post('/messages', function () {
         'message' => request()->get('message')    
     ]);
     
-    event(new MessagePosted($message, $user));
+    broadcast(new MessagePosted($message, $user))->toOthers();
     
     return ['status' => 'success'];
     

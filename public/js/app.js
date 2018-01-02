@@ -1431,7 +1431,11 @@ var app = new Vue({
         });
 
         Echo.join('chatroom').here(function (res) {}).joining(function (res) {}).leaving(function (res) {}).listen('MessagePosted', function (e) {
-            console.log(e);
+            _this.messages.push({
+                message: e.message.message,
+                user: e.user
+            });
+            // console.log(e);
         });
     }
 });
